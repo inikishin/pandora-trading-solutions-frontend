@@ -12,7 +12,7 @@ import styles from '../../styles/jss/components/buttonStyle';
 
 const useStyles = makeStyles(styles);
 
-const RegularButton = React.forwardRef((props, ref) => {
+const RegularButton = React.forwardRef(function RenderRegularButton(props, ref) {
   const {
     color,
     round,
