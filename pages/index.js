@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 import Head from 'next/head';
-import Image from 'next/image';
+import Link from 'next/link';
 
 import Carousel from "react-slick";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,6 +15,7 @@ import GridItem from '../components/Grid/GridItem.js';
 import headersStyle from '../styles/jss/views/headersStyle';
 
 import bg1 from '../public/img/bg/dg2.jpg';
+import HeaderLinks from "../components/Header/HeaderLinks";
 
 const useStyles = makeStyles(headersStyle);
 
@@ -42,20 +43,7 @@ export default function Home() {
           absolute
           brand="Pandora Trading Solutions"
           color="transparent"
-          links={
-            <List className={classes.list + " " + classes.mlAuto}>
-              <ListItem className={classes.listItem}>
-                <Button
-                  href="/"
-                  className={classes.navLink}
-                  onClick={(e) => e.preventDefault()}
-                  color="transparent"
-                >
-                  Home
-                </Button>
-              </ListItem>
-            </List>
-          }
+          links={<HeaderLinks />}
         />
         <Carousel {...settings}>
           {/* Carousel 2 START */}
@@ -82,6 +70,16 @@ export default function Home() {
                       цены с использованием искусственного интеллекта.
                     </h4>
                     <br />
+                    <Link href="/daily-analysis">
+                      <Button
+                        onClick={(e) => e.preventDefault()}
+                        color="danger"
+                        size="lg"
+                      >
+                        <i className="fas fa-play"/>
+                        Get started
+                      </Button>
+                    </Link>
                   </GridItem>
                 </GridContainer>
               </div>
