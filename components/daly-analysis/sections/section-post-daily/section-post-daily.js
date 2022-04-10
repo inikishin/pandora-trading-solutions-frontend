@@ -1,5 +1,8 @@
 import { Typography } from "@material-ui/core";
-import Chart from 'react-apexcharts';
+
+import dynamic from 'next/dynamic';
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+// import Chart from 'react-apexcharts';
 import { generateDailyAnalysisText } from "../../../../utils/daily-analysis/daily-analysis";
 
 const chartOptions = {

@@ -57,8 +57,8 @@ export default function SectionDailyAnalysisList({availablePostsList}) {
         </GridItem>
       </GridContainer>
       <GridContainer justify="center">
-        {availablePostsList.map(item => (
-          <GridItem xs={12} sm={6} md={4} lg={3}>
+        {availablePostsList && availablePostsList.map(item => (
+          <GridItem key={item.ticker} xs={12} sm={6} md={4} lg={3}>
             <DailyAnalysisCardCompact tickerId={item.ticker} ticker={item.ticker__code} datetime={item.datetime}/>
           </GridItem>
         ))}
