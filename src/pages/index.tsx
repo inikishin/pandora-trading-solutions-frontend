@@ -1,7 +1,10 @@
 import { HeroSection } from "@/components/sections/hero-section/hero-section";
+import {NextPage} from "next";
 
-export default function Home() {
+const HomePage: NextPage = () => {
   return (
     <HeroSection />
   )
 }
+
+export default HomePage;
