@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Head from 'next/head';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
 
 import { makeStyles } from "@material-ui/core/styles";
-import FormatAlignLeft from "@material-ui/icons/FormatAlignLeft";
 
-import Header from "../../../components/Header/Header";
-import HeaderLinks from "../../../components/Header/HeaderLinks";
 import SectionDailyAnalysisText from "../../../components/daly-analysis/sections/section-daily-analysis-text.js";
 import Parallax from "../../../components/parallax/parallax";
 import GridContainer from "../../../components/Grid/GridContainer";
@@ -18,7 +13,7 @@ import { useFeatureCodes, useFeatures } from "../../../services/api/daily-analys
 import SectionDailyAnalysisPostInfo from "../../../components/daly-analysis/sections/section-daily-analysis-post-info";
 import SectionSimilarDailyAnalysisPosts
   from "../../../components/daly-analysis/sections/section-similar-daily-analysis-posts";
-
+import { PageLayout } from "../../../components/base/page-layout/page-layout";
 
 const DailyAnalysisPage = (props) => {
   const useStyles = makeStyles(dailyAnalysisPageStyle);
@@ -39,14 +34,12 @@ const DailyAnalysisPage = (props) => {
   if (featuresData.isLoading) return <div>Loading...</div>
 
   return (
-    <div>
-      <Head>
-        <title>{tickerId} - {datetime}</title>
-        <meta property="og:title" content='213' key="title"/>
-        <meta property="description" content='123' />
-      </Head>
-      <Header fixed color="primary" brand="Pandora Trading Solutions" links={<HeaderLinks />}/>
-
+    <PageLayout
+      title={`${tickerId} - ${datetime}`}
+      description={`${tickerId} - ${datetime}`}
+      headerColor="primary"
+      headerAbsolute={false}
+    >
       <Parallax image="/img/bg/da.jpg" filter="dark" extraSmall>
         <div className={classes.container}>
           <GridContainer justify="center">
@@ -66,7 +59,7 @@ const DailyAnalysisPage = (props) => {
       </div>
 
       <SectionSimilarDailyAnalysisPosts similarPosts={[]}/>
-    </div>
+    </PageLayout>
   );
 }
 

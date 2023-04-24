@@ -1,8 +1,4 @@
-import classNames from "classnames";
 
-import Head from "next/head";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 // @material-ui/icons
@@ -12,17 +8,15 @@ import ViewCompactIcon from '@material-ui/icons/ViewCompact';
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
 import Button from "../../components/CustomButtons/Button";
-import Header from "../../components/Header/Header";
-import HeaderLinks from "../../components/Header/HeaderLinks";
 import Parallax from "../../components/parallax/parallax";
 
 import dailyAnalysisPageStyle from "../../styles/jss/pages/daily-analysis-page-style";
 import { makeStyles } from "@material-ui/core/styles";
-import SectionDailyAnalysisText from "../../components/daly-analysis/sections/section-daily-analysis-text";
 import React from "react";
 import SectionDailyAnalysisList from "../../components/daly-analysis/sections/section-daily-analysis-list";
 import { useTickers } from "../../services/api/quotes";
 import { useAvailableDailyAnalysisPosts } from "../../services/api/daily-analysis";
+import { PageLayout } from "components/base/page-layout/page-layout";
 
 const useStyles = makeStyles(dailyAnalysisPageStyle);
 
@@ -43,14 +37,12 @@ export default function DailyAnalysis() {
   }
 
   return (
-    <>
-      <Head>
-        <title>Daily analysis - Pandora Trading Solutions</title>
-        <meta name="description" content="Daily analysis - Pandora Trading Solutions"/>
-        <link rel="icon" href="/favicon.ico"/>
-      </Head>
-      <Header fixed color="primary" brand="Pandora Trading Solutions" links={<HeaderLinks />}/>
-
+    <PageLayout
+      title="Daily analysis - Pandora Trading Solutions"
+      description="Daily analysis - Pandora Trading Solutions"
+      headerColor="primary"
+      headerAbsolute={false}
+    >
       <Parallax
         image="/img/bg/da.jpg"
         filter="dark"
@@ -80,6 +72,6 @@ export default function DailyAnalysis() {
           <SectionDailyAnalysisList availablePostsList={availableDailyAnalysisPosts.posts} />
         </div>
       </div>
-    </>
+    </PageLayout>
   )
 }
