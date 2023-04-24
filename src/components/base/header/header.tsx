@@ -8,13 +8,15 @@ const navigation = [
   { name: 'Аналитика', href: '/daily' },
 ]
 
-type HeaderType = {};
+type HeaderType = {
+  isTransparent: boolean;
+};
 
-export const Header: React.FC<HeaderType> = () => {
+export const Header: React.FC<HeaderType> = ({ isTransparent }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className={`absolute inset-x-0 top-0 z-50 ${isTransparent ? '': 'bg-primary'}`}>
       <nav className="flex items-center justify-end lg:justify-center p-6 lg:px-8">
         <div className="flex lg:hidden">
           <button
