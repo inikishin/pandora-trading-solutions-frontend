@@ -1,21 +1,17 @@
 import classNames from "classnames";
 
-import Head from 'next/head';
 import Link from 'next/link';
 
 import Carousel from "react-slick";
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 
-import Header from '../components/Header/Header';
 import Button from '../components/CustomButtons/Button';
 import GridContainer from '../components/Grid/GridContainer';
 import GridItem from '../components/Grid/GridItem.js';
 import headersStyle from '../styles/jss/views/headersStyle';
 
+import { PageLayout } from "../components/base/page-layout/page-layout";
 import bg1 from '../public/img/bg/dg2.jpg';
-import HeaderLinks from "../components/Header/HeaderLinks";
 
 const useStyles = makeStyles(headersStyle);
 
@@ -31,21 +27,13 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <Head>
-        <title>Pandora Trading Solutions</title>
-        <meta name="description" content="Pandora Trading Solutions" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div>
-        <Header
-          absolute
-          brand="Pandora Trading Solutions"
-          color="transparent"
-          links={<HeaderLinks />}
-        />
-        <Carousel {...settings}>
+    <PageLayout
+      title="Главная страница"
+      description="Pandora Trading Solutions"
+      headerColor="transparent"
+      headerAbsolute
+    >
+      <Carousel {...settings}>
           {/* Carousel 2 START */}
           <div>
             <div
@@ -87,7 +75,6 @@ export default function Home() {
           </div>
           {/* Carousel 2 END */}
         </Carousel>
-      </div>
-    </div>
+    </PageLayout>
   )
 }
