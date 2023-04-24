@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
     <div className="h-screen overflow-hidden bg-hero flex justify-center items-center">
       <div className="absolute bg-black/50 w-full h-screen"/>
 
-      <Header />
+      <Header isTransparent />
 
       <div className="relative max-w-2xl text-center">
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
