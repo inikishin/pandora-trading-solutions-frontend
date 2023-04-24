@@ -15,43 +15,27 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "incremental": true,
     "isolatedModules": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "noImplicitReturns": false,
-    "alwaysStrict": true,
+    "jsx": "preserve",
+    "incremental": true,
     "paths": {
-      "base/*": [
-        "components/base/*"
-      ],
-      "environment/*": [
-        "components/environment/*"
-      ],
-      "sections/*": [
-        "components/sections/*"
-      ],
-      "store/*": [
-        "store/*"
-      ],
-      "theme/*": [
-        "theme/*"
-      ],
-      "constants/*": [
-        "modules/constants/*"
+      "@/*": [
+        "./src/*"
       ]
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "custom-next-env.d.ts",
+    "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules", "next-env.d.ts"
+    "node_modules"
   ]
 }
