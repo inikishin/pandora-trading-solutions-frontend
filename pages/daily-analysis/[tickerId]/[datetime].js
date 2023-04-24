@@ -59,9 +59,7 @@ const DailyAnalysisPage = (props) => {
 
       <div className={classes.main}>
         <div className={classes.container} id="post-content">
-
           <SectionDailyAnalysisText featuresData={featuresData} featuresCodeData={featuresCodeData} />
-
           <SectionDailyAnalysisPostInfo category={"DA"} date_published={"01.01.2021"}
                                         author={"master"}/>
         </div>
