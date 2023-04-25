@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { createChart, IChartApi } from 'lightweight-charts';
+import {createChart, IChartApi, UTCTimestamp} from 'lightweight-charts';
 
 type QuoteType = {
-  time: string;
+  time: UTCTimestamp;
   open: number;
   high: number;
   low: number;
