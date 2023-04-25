@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DailyCard, DailyCardType } from "@/components/sections/daily/daily-card/daily-card";
+import { DailyCard, DailyCardType } from "@/components/sections/daily-list/daily-card/daily-card";
 
 type DailyCardsType = {
   data: Array<DailyCardType>
