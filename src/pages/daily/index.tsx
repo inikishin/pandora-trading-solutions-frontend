@@ -1,20 +1,39 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { NextPage } from "next";
 
-import { DailyCards } from "@/components/sections/daily";
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { dailySelectors, dailyServices } from '@/store/daily';
+import { DailyCards } from "@/components/sections/daily-list";
 import { PageLayout } from "@/components/base/page-layout/page-layout";
 
 const DailyPage: NextPage = () => {
-  const data = [
-    {'id': '1', 'code': 'gazp', 'name': 'Gazpropm', 'description': 'Gazprom description', img: '', onDatetime: '2022-03-13'},
-    {'id': '2', 'code': 'sber', 'name': 'Sberbank', 'description': 'Sberbank description', img: '', onDatetime: '2022-03-13'},
-    {'id': '3', 'code': 'five', 'name': 'X5 retail', 'description': 'X5 retail description', img: '', onDatetime: '2022-03-13'},
-    {'id': '4', 'code': 'yndx', 'name': 'Yandex', 'description': 'Yandex description', img: '', onDatetime: '2022-03-13'},
-  ];
+  const dispatch = useAppDispatch();
+  const { isLoading, data, error } = useAppSelector(dailySelectors.tickers);
+
+  useEffect(() => {
+    dispatch(dailyServices.getTickers());
+  }, [dispatch]);
+
+  if (isLoading) {
+    return (
+      <PageLayout>
+        <div>Loading...</div>
+      </PageLayout>
+    )
+  }
+
+  if (data) {
+    return (
+      <PageLayout>
+        <DailyCards data={data.map((item) => ({onDatetime: (new Date()).toISOString(), ...item}))}/>
+      </PageLayout>
+    )
+  }
 
   return (
     <PageLayout>
-      <DailyCards data={data} />
+      <div>Что то пошло не так...</div>
+      <div>{error}</div>
     </PageLayout>
   );
 };
