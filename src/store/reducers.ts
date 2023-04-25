@@ -1,7 +1,9 @@
 import { dailySlice } from './daily';
 import { quotesSlice } from './quotes';
 
-export default {
+const rootReducer = {
   daily: dailySlice,
   quotes: quotesSlice,
 };
+
+export default rootReducer;
