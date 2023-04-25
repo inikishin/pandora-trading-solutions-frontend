@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const commonRuntimeConfig = {
   ENV: process.env.NODE_ENV || 'development',
-  API_URL: process.env.API_URL || 'https://ecosystem.osinit.net/api/v1',
+  ADMIN_API_URL: process.env.API_URL || 'https://admin.api.pandoratradingsolutions.com/api/v1',
+  QUOTES_API_URL: process.env.API_URL || 'https://quotes.api.pandoratradingsolutions.com/api/v1',
 };
 
 const nextConfig = {
