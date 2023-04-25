@@ -32,7 +32,7 @@ export const useChartSection = ({ ticker, timeframe }: ChartSectionHookType) => 
           low: item.low,
           close: item.close,
         }
-      ));
+      )).sort((a, b) => (a.time - b.time));
   };
 
   useEffect(() => {
