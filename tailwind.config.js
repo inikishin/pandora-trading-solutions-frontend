@@ -45,6 +45,10 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      lineClamp: {
+        10: '10',
+        15: '15',
+      },
     },
   },
   plugins: [],
