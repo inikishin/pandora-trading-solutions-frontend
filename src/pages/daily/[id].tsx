@@ -8,6 +8,11 @@ import { PageLayout } from "@/components/base/page-layout/page-layout";
 import { ChartSection, SummarySection } from "@/components/sections/daily-item";
 
 
+const pageMeta = {
+  title: "Ежедневный анализ - pandoratradingsolutions.com",
+  description: "Ежедневный анализ - pandoratradingsolutions.com",
+};
+
 const DailyTickerPage: NextPage = () => {
   const router = useRouter();
   const id = router.query.id as string;
@@ -25,7 +30,7 @@ const DailyTickerPage: NextPage = () => {
   return !ticker.data || ticker.isLoading ? (
     <div>Full Loading...</div>
     ) : (
-    <PageLayout>
+    <PageLayout title={`${ticker.data.code.toUpperCase()} - ${pageMeta.title}`} description={pageMeta.description}>
       <SummarySection />
       <ChartSection ticker={ticker.data.code} timeframe="d1" />
     </PageLayout>

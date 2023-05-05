@@ -1,0 +1,16 @@
+name: ci-build
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Pandora Trading Solutions Frontend
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Open repo folder
+        run: cd ${{ github.workspace }}
+      - name: Build image
+        run: make build
