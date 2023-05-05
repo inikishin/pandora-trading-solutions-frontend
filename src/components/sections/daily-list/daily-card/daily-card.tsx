@@ -22,7 +22,7 @@ export const DailyCard: React.FC<DailyCardType> = (
           <Image src={img ? img : logo} alt={code} className="rounded-xl" />
         </div>
         <div className="flex items-center gap-x-4 text-xs w-full justify-between mt-3">
-          <div className="text-gray-500">{onDatetime}</div>
+          <div className="text-gray-500">{new Date(onDatetime).toLocaleString("ru-RU")}</div>
           <div className="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{code}</div>
         </div>
         <div className="group relative">
