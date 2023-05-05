@@ -18,6 +18,7 @@ export const PageLayout: React.FC<PageLayoutType> = ({ children, title, descript
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} key="title" />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={ogUrl ? ogUrl : 'https://pandoratradingsolutions.com'} />
