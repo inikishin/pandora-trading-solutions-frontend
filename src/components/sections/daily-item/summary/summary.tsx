@@ -28,7 +28,7 @@ export const SummarySection: React.FC = () => {
         </div>
       </div>
       <div className="col-span-2">
-        <p className="line-clamp-5 md:line-clamp-15">{ticker.data.description}</p>
+        <p className="line-clamp-5 md:line-clamp-15 text-sm leading-6 text-gray-600">{ticker.data.description}</p>
       </div>
     </div>
   );
