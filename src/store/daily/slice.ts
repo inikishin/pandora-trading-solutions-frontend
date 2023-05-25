@@ -3,22 +3,30 @@ import { createSlice } from '@reduxjs/toolkit';
 import { DEFAULT_LSDE_STATE } from '@/store/utils';
 import type { LSDEState } from '@/store/utils';
 import { DailyServices } from "@/store/daily/services";
-import type {TickerDTO, TickersDTO} from "@/models/ticker.dto";
-import type {TimeframesDTO} from "@/models/timeframe.dto";
+import type { TickerDTO, TickersDTO } from "@/models/ticker.dto";
+import type { TimeframesDTO } from "@/models/timeframe.dto";
+import type { ScreenerDTO } from "@/models/screener.dto";
 
 type DailyState = {
   ticker: LSDEState<TickerDTO>,
   tickers: LSDEState<TickersDTO>,
   timeframes: LSDEState<TimeframesDTO>,
+  tickerScreener: LSDEState<ScreenerDTO>,
 };
 
 const initialState: DailyState = {
   ticker: DEFAULT_LSDE_STATE,
   tickers: DEFAULT_LSDE_STATE,
   timeframes: DEFAULT_LSDE_STATE,
+  tickerScreener: DEFAULT_LSDE_STATE,
 }
 
-const { getTickers, getTicker, getTimeframes } = DailyServices;
+const {
+  getTickers,
+  getTicker,
+  getTimeframes,
+  getTickerScreener,
+} = DailyServices;
 
 export const DailySlice = createSlice({
   name: 'daily',
@@ -68,6 +76,21 @@ export const DailySlice = createSlice({
     builder.addCase(getTimeframes.rejected, (state, { payload }) => {
       state.timeframes.isLoading = false;
       state.timeframes.error = payload as string;
+    });
+
+    builder.addCase(getTickerScreener.pending, (state) => {
+      state.tickerScreener.isLoading = true;
+      state.tickerScreener.error = null;
+      state.tickerScreener.isSuccess = false;
+    });
+    builder.addCase(getTickerScreener.fulfilled, (state, { payload }) => {
+      state.tickerScreener.isLoading = false;
+      state.tickerScreener.isSuccess = true;
+      state.tickerScreener.data = payload;
+    });
+    builder.addCase(getTickerScreener.rejected, (state, { payload }) => {
+      state.tickerScreener.isLoading = false;
+      state.tickerScreener.error = payload as string;
     });
   },
 });
