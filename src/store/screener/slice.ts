@@ -6,7 +6,7 @@ import { ScreenerServices } from "@/store/screener/services";
 import type { ScreenerDTO } from "@/models/screener.dto";
 
 type ScreenerState = {
-  screenerData: LSDEState<ScreenerDTO>,
+  screenerData: LSDEState<ScreenerDTO[]>,
 };
 
 const initialState: ScreenerState = {

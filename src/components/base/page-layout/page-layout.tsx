@@ -12,7 +12,9 @@ type PageLayoutType = {
   ogImage?: string;
 };
 
-export const PageLayout: React.FC<PageLayoutType> = ({ children, title, description, ogUrl, ogImage }) => {
+export const PageLayout: React.FC<PageLayoutType> = (
+  { children, title, description, ogUrl, ogImage }
+) => {
   return (
     <div>
       <Head>
