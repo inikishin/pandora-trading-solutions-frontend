@@ -6,6 +6,7 @@ import {Dialog} from "@headlessui/react";
 const navigation = [
   { name: 'Главная', href: '/' },
   { name: 'Аналитика', href: '/daily' },
+  { name: 'Скринер', href: '/screener' },
 ]
 
 type HeaderType = {
