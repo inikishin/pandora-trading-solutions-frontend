@@ -85,7 +85,7 @@ export const useChartSection = ({ ticker, timeframe, options }: ChartSectionHook
           timeframe: timeframe,
         },
         query: {
-          limit: 120,
+          limit: 200,
         }
       };
       dispatch(quotesServices.getQuotes(quotesParams));
