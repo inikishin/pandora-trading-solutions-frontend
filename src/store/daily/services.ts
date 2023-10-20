@@ -35,9 +35,9 @@ export const DailyServices = {
 
   getTicker: createAsyncThunk<TickerDTO, string, { rejectValue: string }>(
     'daily/getTicker',
-    async (id, { rejectWithValue }) => {
+    async (code, { rejectWithValue }) => {
       try {
-        const response = await api.admin.get(`tickers/${id}`);
+        const response = await api.admin.get(`tickers/${code}`);
 
         return response.data;
       } catch (error) {

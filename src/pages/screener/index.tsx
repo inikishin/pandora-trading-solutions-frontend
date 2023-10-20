@@ -18,7 +18,7 @@ const columns: Column[] = [
   {
     key: 'ticker',
     name: 'Тикер',
-    type: "string",
+    type: "link",
   },
   {
     key: 'on',
@@ -102,6 +102,7 @@ const ScreenerPage: NextPage = () => {
         {
           ticker: item!.ticker!.toUpperCase(),
           on: new Date(item!.on!).toLocaleDateString(),
+          link: `/daily/${item!.ticker!}`,
           ...item!.calcs,
         }
       ))

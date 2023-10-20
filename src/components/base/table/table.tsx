@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface RowData {
   [key: string]: any
@@ -12,7 +13,8 @@ type TableType = {
 export type Column = {
   key: string,
   name: string;
-  type: "string" | "percent" | "currency"
+  type: "string" | "percent" | "currency" | "link";
+  link?: string;
 }
 
 type TableHeadType = {
@@ -59,7 +61,7 @@ const TableRow: React.FC<TableRowType> = ({ columns, rowData}) => {
     <tr>
       {columns.map((column) => (
         <td key={column.key} className="border border-slate-300 border-collapse p-4 text-slate-500">
-          {rowData.hasOwnProperty(column.key) && <TableCell type={column.type} value={rowData[column.key]} />}
+          {rowData.hasOwnProperty(column.key) && <TableCell type={column.type} value={rowData[column.key]} link={rowData?.link} />}
         </td>
       ))}
     </tr>
@@ -67,11 +69,12 @@ const TableRow: React.FC<TableRowType> = ({ columns, rowData}) => {
 }
 
 type TableCellType = {
-  type: "string" | "percent" | "currency";
+  type: "string" | "percent" | "currency" | "link";
   value: string | number;
+  link?: string;
 }
 
-const TableCell: React.FC<TableCellType> = ({ type, value }) => {
+const TableCell: React.FC<TableCellType> = ({ type, value, link }) => {
   switch (type) {
     case "percent": {
       const numericValue = typeof value === 'number' ? value : parseFloat(value);
@@ -80,6 +83,9 @@ const TableCell: React.FC<TableCellType> = ({ type, value }) => {
     case "currency": {
       const numericValue = typeof value === 'number' ? value : parseFloat(value);
       return <span className={numericValue < 0 ? "text-red-500" : "text-green-500"}>{value} руб.</span>;
+    }
+    case "link": {
+      return <Link href={`${link}`}><span>{value}</span></Link>;
     }
     default: {
       return <span>{value}</span>;

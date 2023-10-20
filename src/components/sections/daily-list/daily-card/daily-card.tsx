@@ -17,7 +17,7 @@ export const DailyCard: React.FC<DailyCardType> = (
   { id, code, name, description, img, onDatetime}) => {
   return (
     <article className="flex max-w-xl flex-col items-start hover:bg-gray-100 rounded-xl p-4">
-      <Link href={`/daily/${id}`}>
+      <Link href={`/daily/${code}`}>
         <div className="flex w-full justify-center">
           <Image src={img ? img : logo} alt={code} className="rounded-xl" />
         </div>

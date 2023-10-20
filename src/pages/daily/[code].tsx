@@ -14,18 +14,18 @@ const pageMeta = {
 
 const DailyTickerPage: NextPage = () => {
   const router = useRouter();
-  const id = router.query.id as string;
+  const code = router.query.code as string;
 
   const dispatch = useAppDispatch();
   const ticker = useAppSelector(dailySelectors.ticker);
   const screener = useAppSelector(dailySelectors.tickerScreener);
 
   useEffect(() => {
-    if (id) {
-      dispatch(dailyServices.getTicker(id));
+    if (code) {
+      dispatch(dailyServices.getTicker(code));
       dispatch(dailyServices.getTimeframes());
     }
-  }, [dispatch, id]);
+  }, [dispatch, code]);
 
   useEffect(() => {
     if (ticker.data) {
