@@ -1,6 +1,6 @@
 import { AxiosError } from 'axios';
 
-type Nullable<T> = T | null;
+export type Nullable<T> = T | null;
 
 export type LSDEState<T> = {
   isLoading: boolean;

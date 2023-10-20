@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import Link from 'next/link';
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
-import {Dialog} from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Dialog } from "@headlessui/react";
 
 const navigation = [
   { name: 'Главная', href: '/' },
   { name: 'Аналитика', href: '/daily' },
+  { name: 'Скринер', href: '/screener' },
 ]
 
 type HeaderType = {
